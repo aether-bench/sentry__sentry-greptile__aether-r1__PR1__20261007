@@ -1,0 +1,5 @@
+{
+  "setup": "python3 -m venv .venv && . .venv/bin/activate && pip install -q --upgrade pip && timeout 480 pip install -q -e . || echo 'pip install -e . did not finish; review continues with the interpreter only'; true",
+  "setup_on_boot": "docker run -d --name bench-pg -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:16 >/dev/null 2>&1 || true; docker run -d --name bench-redis -p 6379:6379 redis:7 >/dev/null 2>&1 || true",
+  "terminals": []
+}
